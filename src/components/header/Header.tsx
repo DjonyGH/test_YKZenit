@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
-import { FilterActionCreator } from '../../store/reducers/filters/action-creators'
+import { filterActionCreator } from '../../store/reducers/filters/action-creators'
 import { generalActionCreator } from '../../store/reducers/general/action-creators'
 import styles from './header.module.scss'
 
@@ -16,11 +16,11 @@ const Header: React.FC = () => {
   }, [isMenuVisible]) //eslint-disable-line
 
   const handleCircleChange = useCallback(() => {
-    dispatch(FilterActionCreator.setIsCircleVisible(!isCircleVisible))
+    dispatch(filterActionCreator.setIsCircleVisible(!isCircleVisible))
   }, [isCircleVisible]) //eslint-disable-line
 
   const handleSquareChange = useCallback(() => {
-    dispatch(FilterActionCreator.setIsSquareVisible(!isSquareVisible))
+    dispatch(filterActionCreator.setIsSquareVisible(!isSquareVisible))
   }, [isSquareVisible]) //eslint-disable-line
 
   return (
