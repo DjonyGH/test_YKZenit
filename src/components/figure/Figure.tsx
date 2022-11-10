@@ -7,17 +7,19 @@ interface IProps {
   color: EFigureColor
   dark: boolean
   width: number
+  margin?: number
 }
 
-const Figure: React.FC<IProps> = ({ form, color, dark, width }) => {
+const Figure: React.FC<IProps> = ({ form, color, dark, width, margin = 10 }) => {
   const style = useMemo(
     () => ({
       borderRadius: form === EFigureForm.circle ? '50%' : undefined,
       backgroundColor: COLORS[`${color}${dark ? ' dark' : ''}`],
-      width: `${width}px`,
-      height: `${width}px`
+      width: `${width - margin * 2}px`,
+      height: `${width - margin * 2}px`,
+      margin: `${margin}px`
     }),
-    [form, color, dark, width]
+    [form, color, dark, width, margin]
   )
 
   return <div style={style}></div>
