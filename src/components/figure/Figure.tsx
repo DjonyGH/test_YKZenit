@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { COLORS } from '../../const/colors'
 import { EFigureColor, EFigureForm } from '../../types'
 
@@ -19,6 +19,7 @@ const Figure: React.FC<IProps> = ({ form, color, dark, width }) => {
     }),
     [form, color, dark, width]
   )
+
   return <div style={style}></div>
 }
 

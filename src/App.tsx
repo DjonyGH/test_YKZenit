@@ -1,11 +1,11 @@
 import React from 'react'
-import Figure from './components/figure/Figure'
-import { EFigureColor, EFigureForm } from './types'
+
+import Main from './components/main/Main'
 
 function App() {
   return (
     <div className="App">
-      <Figure form={EFigureForm.square} color={EFigureColor.red} dark={true} width={150} />
+      <Main />
     </div>
   )
 }
