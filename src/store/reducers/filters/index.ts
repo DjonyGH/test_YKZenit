@@ -7,7 +7,8 @@ const initialState: IFilterState = {
   isGreenVisible: true,
   isRedVisible: true,
   isYellowVisible: true,
-  isDarkVisible: null
+  isDarkVisible: null,
+  columns: 4
 }
 
 export default function filtersReducer(state = initialState, action: TFilterAction): IFilterState {
@@ -26,6 +27,8 @@ export default function filtersReducer(state = initialState, action: TFilterActi
       return { ...state, isYellowVisible: action.payload }
     case EFilterAction.SET_IS_DARK_VISIBLE:
       return { ...state, isDarkVisible: action.payload }
+    case EFilterAction.SET_IS_COLUMNS:
+      return { ...state, columns: action.payload }
     default:
       return state
   }

@@ -28,5 +28,9 @@ export const filterActionCreator = {
   setIsDarkVisible: (isDarkVisible: boolean | null) => ({
     type: EFilterAction.SET_IS_DARK_VISIBLE,
     payload: isDarkVisible
+  }),
+  setColimns: (columns: number) => ({
+    type: EFilterAction.SET_IS_COLUMNS,
+    payload: columns
   })
 }

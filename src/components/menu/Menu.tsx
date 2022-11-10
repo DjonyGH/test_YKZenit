@@ -2,13 +2,13 @@ import React, { useCallback } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { filterActionCreator } from '../../store/reducers/filters/action-creators'
-
 import styles from './menu.module.scss'
+import InputNumber from 'react-input-number'
 
 const Menu: React.FC = () => {
   const dispatch = useTypedDispatch()
   const { isMenuVisible } = useTypedSelector((state) => state.generalReducer)
-  const { isBlueVisible, isGreenVisible, isRedVisible, isYellowVisible, isDarkVisible } = useTypedSelector(
+  const { isBlueVisible, isGreenVisible, isRedVisible, isYellowVisible, isDarkVisible, columns } = useTypedSelector(
     (state) => state.filtersReducer
   )
 
@@ -40,6 +40,10 @@ const Menu: React.FC = () => {
     dispatch(filterActionCreator.setIsDarkVisible(false))
   }, []) //eslint-disable-line
 
+  const handleColumnsChange = useCallback((columns: number) => {
+    dispatch(filterActionCreator.setColimns(columns))
+  }, []) //eslint-disable-line
+
   return (
     <div className={`${styles.menu} ${isMenuVisible ? styles.visible : ''}`}>
       <div className={styles.firstInGroup}>
@@ -69,6 +73,10 @@ const Menu: React.FC = () => {
       <div>
         <input type="radio" id="light" name="light" checked={isDarkVisible === false} onChange={handleLightChange} />
         <label htmlFor="light">Светлый</label>
+      </div>
+      <div className={styles.firstInGroup}>
+        <label htmlFor="all">Колонок</label>
+        <InputNumber min={1} max={10} step={1} value={columns} onChange={handleColumnsChange} />
       </div>
     </div>
   )

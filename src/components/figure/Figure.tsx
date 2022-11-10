@@ -17,7 +17,7 @@ const Figure: React.FC<IProps> = ({ form, color, dark, width, margin = 10 }) => 
       backgroundColor: COLORS[`${color}${dark ? ' dark' : ''}`],
       width: `${width - margin * 2}px`,
       height: `${width - margin * 2}px`,
-      margin: `${margin}px`
+      margin: `0 ${margin}px ${margin * 2}px`
     }),
     [form, color, dark, width, margin]
   )

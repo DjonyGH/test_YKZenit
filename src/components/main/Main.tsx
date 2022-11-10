@@ -9,14 +9,15 @@ const Main: React.FC = () => {
   const dispatch = useTypedDispatch()
   const divBlock = useRef<HTMLDivElement | null>(null)
   const { figures } = useTypedSelector((state) => state.figuresReducer)
+  const { columns } = useTypedSelector((state) => state.filtersReducer)
 
   useEffect(() => {
     dispatch(figuresActionCreator.fetchFigures())
   }, []) //eslint-disable-line
 
   const calcFigureWidth = useCallback(() => {
-    return Math.floor((divBlock.current?.getBoundingClientRect().width || 0) / 4)
-  }, [])
+    return Math.floor((divBlock.current?.getBoundingClientRect().width || 0) / columns)
+  }, [columns])
 
   return (
     <div className={styles.main} ref={divBlock}>

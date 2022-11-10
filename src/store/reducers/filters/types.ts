@@ -5,7 +5,8 @@ export enum EFilterAction {
   SET_IS_GREEN_VISIBLE = 'SET_IS_GREEN_VISIBLE',
   SET_IS_RED_VISIBLE = 'SET_IS_RED_VISIBLE',
   SET_IS_YELLOW_VISIBLE = 'SET_IS_YELLOW_VISIBLE',
-  SET_IS_DARK_VISIBLE = 'SET_IS_DARK_VISIBLE'
+  SET_IS_DARK_VISIBLE = 'SET_IS_DARK_VISIBLE',
+  SET_IS_COLUMNS = 'SET_IS_COLUMNS'
 }
 
 export interface IFilterState {
@@ -16,6 +17,7 @@ export interface IFilterState {
   isRedVisible: boolean
   isYellowVisible: boolean
   isDarkVisible: boolean | null
+  columns: number
 }
 
 export interface ISetIsCircleVisibleAction {
@@ -53,6 +55,11 @@ export interface ISetIsDarkVisibleAction {
   payload: boolean | null
 }
 
+export interface ISetColumnsAction {
+  type: EFilterAction.SET_IS_COLUMNS
+  payload: number
+}
+
 export type TFilterAction =
   | ISetIsCircleVisibleAction
   | ISetIsSquareVisibleAction
@@ -61,3 +68,4 @@ export type TFilterAction =
   | ISetIsRedVisibleAction
   | ISetIsYellowVisibleAction
   | ISetIsDarkVisibleAction
+  | ISetColumnsAction
