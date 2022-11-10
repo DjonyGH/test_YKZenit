@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  .menuBtn {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+  }
+}
