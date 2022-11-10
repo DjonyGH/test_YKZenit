@@ -25,7 +25,7 @@ export const filterActionCreator = {
     type: EFilterAction.SET_IS_YELLOW_VISIBLE,
     payload: isYellowVisible
   }),
-  setIsDarkVisible: (isDarkVisible: boolean) => ({
+  setIsDarkVisible: (isDarkVisible: boolean | null) => ({
     type: EFilterAction.SET_IS_DARK_VISIBLE,
     payload: isDarkVisible
   })

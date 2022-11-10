@@ -7,7 +7,7 @@ const initialState: IFilterState = {
   isGreenVisible: true,
   isRedVisible: true,
   isYellowVisible: true,
-  isDarkVisible: true
+  isDarkVisible: null
 }
 
 export default function filtersReducer(state = initialState, action: TFilterAction): IFilterState {

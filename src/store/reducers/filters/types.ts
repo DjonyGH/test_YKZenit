@@ -15,7 +15,7 @@ export interface IFilterState {
   isGreenVisible: boolean
   isRedVisible: boolean
   isYellowVisible: boolean
-  isDarkVisible: boolean
+  isDarkVisible: boolean | null
 }
 
 export interface ISetIsCircleVisibleAction {
@@ -50,7 +50,7 @@ export interface ISetIsYellowVisibleAction {
 
 export interface ISetIsDarkVisibleAction {
   type: EFilterAction.SET_IS_DARK_VISIBLE
-  payload: boolean
+  payload: boolean | null
 }
 
 export type TFilterAction =
