@@ -68,7 +68,7 @@
     "dark": false
   },
   {
-    "form": "triangle",
+    "form": "square",
     "color": "red",
     "dark": true
   },
@@ -90,7 +90,7 @@
   },
   {
     "form": "square",
-    "color": "greed",
+    "color": "green",
     "dark": true
   },
   {

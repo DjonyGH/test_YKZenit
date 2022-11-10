@@ -1,9 +1,14 @@
 .main {
   display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
+}
+.figures {
+  display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  height: calc(100vh - 100px);
-  overflow-y: scroll;
 }

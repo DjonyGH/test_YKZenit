@@ -24,9 +24,11 @@ const Main: React.FC = () => {
 
   return (
     <div className={styles.main} ref={divBlock}>
-      {filteredFigures.map((fig, idx) => (
-        <Figure form={fig.form} color={fig.color} dark={fig.dark} width={calcFigureWidth()} key={idx} />
-      ))}
+      <div className={styles.figures}>
+        {filteredFigures.map((fig, idx) => (
+          <Figure form={fig.form} color={fig.color} dark={fig.dark} width={calcFigureWidth()} key={idx} />
+        ))}
+      </div>
     </div>
   )
 }
