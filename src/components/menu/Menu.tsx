@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { filterActionCreator } from '../../store/reducers/filters/action-creators'
@@ -11,6 +11,7 @@ const Menu: React.FC = () => {
   const { isBlueVisible, isGreenVisible, isRedVisible, isYellowVisible, isDarkVisible, columns } = useTypedSelector(
     (state) => state.filtersReducer
   )
+  const [error, setError] = useState<boolean>(false)
 
   const handleBlueChange = useCallback(() => {
     dispatch(filterActionCreator.setIsBlueVisible(!isBlueVisible))
@@ -41,7 +42,12 @@ const Menu: React.FC = () => {
   }, []) //eslint-disable-line
 
   const handleColumnsChange = useCallback((columns: number) => {
-    dispatch(filterActionCreator.setColimns(columns))
+    if (columns <= 0 || columns > 10) {
+      setError(true)
+    } else {
+      setError(false)
+      dispatch(filterActionCreator.setColimns(columns))
+    }
   }, []) //eslint-disable-line
 
   return (
@@ -77,6 +83,7 @@ const Menu: React.FC = () => {
       <div className={styles.firstInGroup}>
         <label htmlFor="all">Колонок</label>
         <InputNumber min={1} max={10} step={1} value={columns} onChange={handleColumnsChange} />
+        {error && <p className={styles.error}>Только цифры от 1 до 10</p>}
       </div>
     </div>
   )
